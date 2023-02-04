@@ -9,6 +9,7 @@ import { AuthConsumer, AuthProvider } from '../contexts/auth-context';
 import { createEmotionCache } from '../utils/create-emotion-cache';
 import { registerChartJs } from '../utils/register-chart-js';
 import { theme } from '../theme';
+import BackdropLoading from '../utils/backdrop';
 
 registerChartJs();
 
@@ -37,7 +38,7 @@ const App = (props) => {
             <AuthConsumer>
               {
                 (auth) => auth.isLoading
-                  ? <Fragment />
+                  ? <BackdropLoading />
                   : getLayout(<Component {...pageProps} />)
               }
             </AuthConsumer>
